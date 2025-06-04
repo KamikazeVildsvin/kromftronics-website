@@ -3,6 +3,12 @@ languageCode = 'en-us'
 title = 'Kromftronics'
 theme = "smol"
 
+# Privacy settings
+[privacy]
+  [privacy.youTube]
+    disable = false
+    privacyEnhanced = true
+
 # Parameters
 [params]
     subtitle = "Electronic DIY Sound Machine"

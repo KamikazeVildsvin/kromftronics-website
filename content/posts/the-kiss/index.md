@@ -37,6 +37,8 @@ Ever since I started the journey of making electronic music some 10 years ago no
 
 "Acid bass" example with plucky bass:
 
+{{< audio src=/audio/the-kiss-example-acid-resonance.mp3 >}}
+
 Filter sweep with sawtooth:
 
 Envelope in free running mode:
@@ -66,7 +68,7 @@ Triangle wave lead with reverb:
 
 The idea started when I saw a video by [Look Mum No Computer](https://www.lookmumnocomputer.com/projects/#/cem-3340-diy-simple) (LMNC). He has been a great inspiration with all his crazy projects and DIY mentality. The video describes how to make a simple 1V/oct voltage controlled oscillator (VCO) using the CEM3340 chip (video below).
 
-https://youtu.be/4Kz8YopLTCQ?si=\_A5oFi3oDRT34DK1
+{{< youtube 4Kz8YopLTCQ >}}
 
 By using the CEM3340 as the foundation for the synthesizer, creating my own seemed more realistic with the limited knowledge I had about analog circuits at that point in time.
 
