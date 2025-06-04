@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>The Ping Ting</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	==================<br>
+	== <a href="http://localhost:1313/">Kromftronics</a> ==<br>
+	==================
+	<div style="float: right;">Electronic DIY Sound Machine</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/posts/"><b>Posts</b></a>.
+			
+			<a href="/categories/"><b>Categories</b></a>.
+			
+			<a href="/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>The Ping Ting</h1>
+			<b><time>20.10.2024 00:00</time></b>
+		       
+		           <a href="/tags/diode-clipping">diode-clipping</a>
+        	       
+		           <a href="/tags/filter-oscillation">filter-oscillation</a>
+        	       
+		           <a href="/tags/filter-pinging">filter-pinging</a>
+        	       
+		           <a href="/tags/projects">projects</a>
+        	       
+		           <a href="/tags/resonance">resonance</a>
+        	       
+		           <a href="/tags/state-variable-filter">state-variable-filter</a>
+        	       
+
+			<div>
+				<h2 id="introduction">Introduction</h2>
+<p>Filters are a really wonderful and powerful tool in music production and sound design. They can be used to control and &ldquo;filter&rdquo; out unwanted content of the original unprocessed sound, but can also be used as a creative tool to generate new and interesting sounds. One interesting use of filters as a sound design tool is filter pinging, which will be described later in this article. <em>The Ping Ting</em> is essentially a filter box, containing three parallel high-Q configurable filters with built-in clipping, designed to be able to be &ldquo;pinged&rdquo;.</p>
+<p>
+<figure>
+  <img src="images/signal-2024-09-26-223856_005-342435402-e1728313972847.jpeg?resize=1200%2C1200" alt="" />
+</figure>
+
+
+</p>
+<p>
+<figure>
+  <img src="images/signal-2024-09-26-222631_002.jpeg?resize=1200%2C1200" alt="" />
+</figure>
+
+
+</p>
+<p>
+<figure>
+  <img src="images/signal-2024-09-26-222631_004-2609009170-e1728313949965.jpeg?resize=1200%2C1200" alt="" />
+</figure>
+
+
+</p>
+<p>
+<figure>
+  <img src="images/signal-2024-09-26-223856_004.jpeg?resize=1200%2C1200" alt="" />
+</figure>
+
+
+</p>
+<p>
+<figure>
+  <img src="images/pcb-in-case-1.jpeg?resize=1200%2C1200" alt="" />
+</figure>
+
+
+</p>
+<p>The rest of the article will shortly cover what filter pinging is, the chosen filter architecture, and some comments about the schematic and PCB of The Ping Ting.</p>
+<h2 id="audio-example">Audio Example</h2>
+<p>All three filters:</p>
+<p>Low frequency filter:</p>
+<p>Mid frequency filter:</p>
+<p>High frequency filter:</p>
+<h2 id="table-of-content">Table of Content</h2>
+<ol>
+<li><a href="https://kromftronics.com/2024/10/20/the-ping-ting/#introduction">Introduction</a></li>
+<li><a href="https://kromftronics.com/2024/10/20/the-ping-ting/#audio-example">Audio Example</a></li>
+<li><a href="https://kromftronics.com/2024/10/20/the-ping-ting/#table-of-content">Table of Content</a></li>
+<li><a href="https://kromftronics.com/2024/10/20/the-ping-ting/#filter-pinging-resonance-goes-boom">Filter Pinging - Resonance Goes BOOM</a></li>
+<li><a href="https://kromftronics.com/2024/10/20/the-ping-ting/#the-state-variable-filter">The State-Variable Filter</a>
+<ol>
+<li><a href="https://kromftronics.com/2024/10/20/the-ping-ting/#high-q-capacitors">High-Q Capacitors</a></li>
+</ol>
+</li>
+<li><a href="https://kromftronics.com/2024/10/20/the-ping-ting/#schematic-pcb-design-files">Schematic, PCB &amp; Design Files</a></li>
+<li><a href="https://kromftronics.com/2024/10/20/the-ping-ting/#conclusion">Conclusion</a></li>
+</ol>
+<h2 id="filter-pinging---resonance-goes-boom">Filter Pinging - Resonance Goes BOOM</h2>
+<p>Filter pinging is a concept I got introduced to by the musician and YouTuber <a href="https://www.youtube.com/@Hainbach">Hainbach</a>. The concept itself is old and goes back to the days when test equipment was used to make electronic music. Hainbach has an excellent YouTube video where he describes the concept that I highly recommend you watch.</p>
+<p><a href="https://youtu.be/qJRXxkswXdg?si=8k8dN0jiZfi62duI">https://youtu.be/qJRXxkswXdg?si=8k8dN0jiZfi62duI</a></p>
+<p>So what is filter pinging? In short, filter pinging is the process of exciting a highly resonant filter with some sort of impulse. A psychical equivalent to this is hitting a glass with a stick, which generates a clear tone that fades away quickly. The same can happen in electrical circuits. Exciting a resonant filter with an impulse will result in a exponentially decaying tone at the output of the filter, which is visualized in figure 1. The higher the resonance/Q-factor the longer and more prominent the oscillation will be. A bandpass filter is also preferable since the filter will only pass one frequency for very high Q-factors.</p>
+<!-- raw HTML omitted -->
+<p>
+<figure>
+  <img src="images/pinging-diagram.drawio.png" alt="" />
+</figure>
+
+
+</p>
+<!-- raw HTML omitted -->
+<p><em>Figure 1: Conceptual diagram of bandpass filter pinging</em></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>So in order to create a filter that is good for pinging, the goal was a bandpass filter topology that can achieve high Q-factors. The book <a href="https://archive.org/details/activefiltercook0000lanc">Active Filter Cookbook</a> by Don Lancaster was a great reference in this &ldquo;search-for-the-right-filter&rdquo;. Don goes through different filter types and the math behind them. The filter that caught my attention was the state-variable filter.</p>
+<h2 id="the-state-variable-filter">The State-Variable Filter</h2>
+<p>The filter topology I ended up using is know as <a href="https://www.ti.com/lit/ds/symlink/uaf42.pdf">the state-variable filter</a>, which can be seen below in figure 2. The state-variable filter is quite interesting architecture, since you get a lowpass, bandpass, and a highpass filter response with the same circuit (!!!!), depending on where you probe the output. Another important feature is that you can set the cutoff frequency and the Q-factor (resonance) of the filter independently, which is nice when you want to be able to control the amount of &ldquo;pinging&rdquo; separately from the frequency. The article about the state-variable filter from <a href="https://www.electronics-tutorials.ws/filter/state-variable-filter.html">electronics-tutorials</a> is a great resource in order to understand how the state-variable filter works, and I would recommend that you read this article.</p>
+<!-- raw HTML omitted -->
+<p>
+<figure>
+  <img src="images/the-ping-ting-schematic-rev-1.1-page-4-1-edited.jpg" alt="" />
+</figure>
+
+
+</p>
+<!-- raw HTML omitted -->
+<p><em>Figure 2: One of the three state-variable filters in &ldquo;The Ping Ting&rdquo;</em></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The state-variable filter is a second-order filter that is implemented using an inverting summing amplifier (U106A in figure 2) and two integrators (U106B and U106C in figure 2). The math is a bit complicated, but essentially, you control the cutoff frequency of both the lowpass, highpass, and bandpass filter as</p>
+<p>$latex f_c = \frac{1}{2\pi \cdot R_V \cdot C} &amp;s=2&amp;bg=000000&amp;fg=ffffff$</p>
+<p>where $latex C &amp;bg=000000&amp;fg=ffffff$ is the value of the two capacitors in the feedback path of the two integrators and $latex R_V&amp;bg=000000&amp;fg=ffffff$ is the resistance of the two variable resistors in the integrators. Two be able to control both the integrators at the same time, I used a dual-gang potentiometer.</p>
+<p>The Q-factor of the state-variable filter is controlled by the amount of feedback from the bandpass output of the filter that is being fed back to the inverting summing amplifier. You may notice that the state-variable filter design that I am using have an opamp in the feedback path from the bandpass output compared to the schematics that are shown in the article by <a href="https://www.electronics-tutorials.ws/filter/state-variable-filter.html">electronics-tutorials</a>. This extra buffering helps achieving higher Q-factors and is suggested in the design in Don Lancaster&rsquo;s book, which is what I based my design on. The Q-factor is controlled by the variable resistor RV402 (e.g. potentiometer) in the feedback path, and can be estimated as</p>
+<p>$latex Q = \frac{\textnormal{R411}}{\textnormal{R410} + \textnormal{RV402}} &amp;s=2&amp;bg=000000&amp;fg=ffffff$</p>
+<p>which theoretically should result in Q-factor 100(!) when the variable resistor RV402 is zero. But, in reality, such Q-factors are hard to achieve due to instability and non-ideal capacitors, which will be the topic of the next section.</p>
+<h3 id="high-q-capacitors">High-Q Capacitors</h3>
+<p>An ideal capacitor is just that. A capacitor. But in reality, a capacitor also has imperfections like parasitic resistance and inductance, which degrades the performance of the capacitor. The name &ldquo;Q-factor&rdquo; is actually short for quality factor, which refers to how ideal or high-quality the capacitor is (<a href="https://eepower.com/capacitor-guide/fundamentals/q-factor/#">EE Power</a> has a good article about Q-factor). In short, what all of this means is that a high-Q capacitor results in a &ldquo;better&rdquo; capacitor, which allows us to achieve a higher Q-factor in the state-variable filter due to the integrator capacitors being better energy storing devices.</p>
+<p>The limiting factor in achieving a high-Q capacitor is the equivalent series resistance (ESR). Mathematically, the Q-factor of a capacitor can be defined as</p>
+<p>$latex Q = \frac{1}{2\pi\cdot f \cdot C \cdot R_{ESR}} &amp;s=2&amp;bg=000000&amp;fg=ffffff$,</p>
+<p>which is the ratio between the reactance of a capacitor and its ESR. The ESR essentially turns the energy storing capacitor into a component with losses. How much loss there in the capacitor compared to its reactance is then the Q-factor. In other words, having a capacitor with a very small ESR results in a high-Q capacitor.</p>
+<p>For The Ping Ting, I used polypropylene (PP) film capacitors from WIMA which are suppose to be a capacitor type with the some of the highest Q-factors. The &ldquo;red boxes&rdquo; on the PCB render below in the following section are the WIMA capacitors used in the integrators. In general, these types of capacitors are some of the best for audio purposes. Just to be sure that all of this capacitor stuff wasn&rsquo;t snake oil, I tried to use standard ceramic disc capacitors when I tested the circuit on breadboard, but I wasn&rsquo;t able to get the &ldquo;pinging&rdquo; from the standard ceramic disc capacitors due to their lower Q-factor. So for these pinging applications, having a good quality capacitor was indeed needed to achieve the performance that I wanted. You can try changing the capacitors yourself and hear the impact.</p>
+<h2 id="schematic-pcb--design-files">Schematic, PCB &amp; Design Files</h2>
+<p>The schematic and PCB of The Ping Ting was designed using <a href="https://www.kicad.org/">KiCad</a>, which is very nice open source PCB CAD tool. All of the schematics and PCB files for The Ping Ting are available on my GitHub, including the 3D renders below:</p>
+<p><a href="https://github.com/KamikazeVildsvin/The-Ping-Ting">Link to &ldquo;The Ping Ting&rdquo; GitHub repo</a></p>
+<p>The gallery below shows the schematic of The Ping Ting. The Ping Ting is a single supply design, meaning that it only needs one +9V power supply to drive the circuit. Compared to a dual supply circuit (e.g +/-15V), where all of the signals are centered around ground, we need to create a DC of 4.5V at the input of all of the opamps for it to operate correctly. This is why most of active circuits are referencing the 4.5V reference voltage instead of ground and also why the input buffers consisting of U101A, U102A, and U103A, AC couples the input signal to the internal 4.5V reference voltage.</p>
+<p>After each filter, we have two anti-parallel diodes and a non-inverting opamp configuration with a gain of two. This serves as a clipper/limiter and makeup gain stage after the state-variable filters. The clipping is implemented in order to tame the VERY large signal swings that occur when the filters are adjusted to have a high Q-factor, and, it also creates a very nice gritty tone when you drive the circuit with a large input amplitude or with a high-Q setting.</p>
+<p>The last output highpass filter is just added to removed the 4.5V offset voltage we introduced in our circuit to use our single +9V supply. I would admit that I could have just added the 1uF capacitor and the 1k resistor at the output of the last opamps, before the 100k volume potentiometer, but the circuit seems to be working fine, so I haven&rsquo;t changed the design.</p>
+<ul>
+<li>
+<p>
+<figure>
+  <img src="images/the-ping-ting-schematic-rev-1.2-page-1.jpg" alt="" />
+</figure>
+
+
+</p>
+</li>
+<li>
+<p>
+<figure>
+  <img src="images/the-ping-ting-schematic-rev-1.2-page-2.jpg" alt="" />
+</figure>
+
+
+</p>
+</li>
+<li>
+<p>
+<figure>
+  <img src="images/the-ping-ting-schematic-rev-1.2-page-3.jpg" alt="" />
+</figure>
+
+
+</p>
+</li>
+<li>
+<p>
+<figure>
+  <img src="images/the-ping-ting-schematic-rev-1.2-page-4.jpg" alt="" />
+</figure>
+
+
+</p>
+</li>
+</ul>
+<p>KiCad has this very nice 3D render function, which lets you see the PCB with components included. It is a very neat tool to check the expected dimensions and to have a look at the PCB before you send it off to manufacturing. The gallery below shows the 3D model of the PCB and the PCB layout in KiCad. You might ask why I have chosen to use the VERY large yellow film capacitors. The answer is that I ordered a big box of random film capacitors from <a href="http://www.banzaimusic.com">Banzai Music</a>, so I had them laying around. Better to use what you have then let it sit in the cupboard.</p>
+<ul>
+<li>
+<p>
+<figure>
+  <img src="images/3d-sideview.png" alt="" />
+</figure>
+
+
+</p>
+</li>
+<li>
+<p>
+<figure>
+  <img src="images/3d.png" alt="" />
+</figure>
+
+
+</p>
+</li>
+<li>
+<p>
+<figure>
+  <img src="images/pcb.png" alt="" />
+</figure>
+
+
+</p>
+</li>
+</ul>
+<p>A finally note is that I initially design all of the bandpass feedback circuits to have a minimum feedback resistance of 100Ω. This value worked fine for the low frequency filter (filter 3), but made the mid- and high-frequency filters unstable for large Q-factor values. To stabilize the circuit, I changed the minimum feedback resistance in filter 1 and 2 to 220Ω, which reduced the Q-factor of the two filters, but made them stable and more useful. As with everything in engineering, everything is a tradeoff ( ‾ ʖ̫ ‾)</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>My initial goal for this project was to create a bandpass filter with a very high Q-factor, intended to be used for filter pinging. The state-variable filter ended up being the best choice for this, and also gave me a lowpass and highpass filter &ldquo;for free&rdquo;, which was quite nice. The importance of high-Q good quality capacitors also really showed that the ideal theoretical components aren&rsquo;t that ideal in the real world, which was a great learning for me. All in all, I&rsquo;m pretty satisfied with the project and I hope that it can be useful for other people trying to design some &ldquo;pingy&rdquo; filters.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/posts/rotten/">Rotten</a></li>
+				
+				<li><a href="/posts/the-ping-ting/">The Ping Ting</a></li>
+				
+				<li><a href="/posts/the-kiss/">The Kiss</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2025 <a href="http://localhost:1313/"><b>Kromftronics</b></a>.
+	<a href="https://github.com/KamikazeVildsvin"><b>Github</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>
