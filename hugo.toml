@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://kamikazevildsvin.github.io/kromftronics-website-deploy/'
 languageCode = 'en-us'
 title = 'Kromftronics'
 theme = "smol"
