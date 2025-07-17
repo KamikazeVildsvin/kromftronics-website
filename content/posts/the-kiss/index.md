@@ -35,15 +35,21 @@ Ever since I started the journey of making electronic music some 10 years ago no
 
 ## Audio Examples
 
-"Acid bass" example with plucky bass:
+"Acid bass" example with plucky bass: 
 
-{{< audio src=/audio/the-kiss-example-acid-resonance.mp3 >}}
+{{< audio src="audio/the-kiss-example-acid-resonance.mp3" >}}
 
 Filter sweep with sawtooth:
 
+{{< audio src="audio/the-kiss-example-sawtooth-sweep.mp3" >}}
+
 Envelope in free running mode:
 
+{{< audio src="audio/the-kiss-example-free-running.mp3" >}}
+
 Triangle wave lead with reverb:
+
+{{< audio src="audio/the-kiss-example-lead.mp3" >}}
 
 ## Table of Content
 
