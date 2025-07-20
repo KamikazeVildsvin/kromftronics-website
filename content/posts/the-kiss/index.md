@@ -2,6 +2,7 @@
 draft: false
 toc: true
 tocBorder: true
+math: true
 title: "The Kiss"
 date: 2024-07-25
 categories: 
@@ -184,17 +185,17 @@ Figure 5 above shows the datasheet 24dB/oct lowpass filter. It looks quite overw
 
 The cutoff frequency of the filter fc is controlled by the voltage at pin 12 (FREQ CV) which expects a 60mV/decade control voltage or 18mV/octave. The reason can be found in the definition of the cutoff frequency derived in the datasheet which can be expressed as
 
-$$f\_{c} = \\frac{A\_{IO}}{2\\pi\\cdot R\_{EQ}\\,C\_P}\\cdot e^{-V\_{\\textit{PIN12}}/26\\textnormal{mV}}$$,
+$$f\_{c} = \\frac{A\_{IO}}{2\\pi\\cdot R\_{EQ}\\,C\_P}\\cdot e^{-V\_{\\textit{PIN12}}/26\\textnormal{mV}}$$
 
 which for the resistors in figure 5 and the typical operating conditions simplifies to
 
-$latex {f\_{c} \\approx \\frac{0.9}{2\\pi\\cdot 91\\textnormal{k}\\Omega\\cdot C\_P}\\cdot e^{-V\_{\\textit{PIN12}}/26\\textnormal{mV}}} &bg=000000&fg=ffffff&s=1$,
+$${f\_{c} \\approx \\frac{0.9}{2\\pi\\cdot 91\\textnormal{k}\\Omega\\cdot C\_P}\\cdot e^{-V\_{\\textit{PIN12}}/26\\textnormal{mV}}}$$
 
-where $latex C\_P &bg=000000&fg=ffffff$ is the value of the capacitors connected to pin 4, 5, 11, and 16. The typical standard in control voltage for synthesizers is 1V/octave, which is why the 100kΩ and the 1k8Ω resistive divider are put before pin 12 since this converts a 1V change to an 18mV change:
+where $C\_P$ is the value of the capacitors connected to pin 4, 5, 11, and 16. The typical standard in control voltage for synthesizers is 1V/octave, which is why the 100kΩ and the 1k8Ω resistive divider are put before pin 12 since this converts a 1V change to an 18mV change:
 
-$latex {V\_{\\textit{PIN12}} = \\frac{1\\textnormal{k}8}{100\\textnormal{k}+1\\textnormal{k}8}\\cdot1\\textnormal{V} \\approx 17.68\\textnormal{mV}} &bg=000000&fg=ffffff&s=1$.
+$${V\_{\\textit{PIN12}} = \\frac{1\\textnormal{k}8}{100\\textnormal{k}+1\\textnormal{k}8}\\cdot1\\textnormal{V} \\approx 17.68\\textnormal{mV}}$$
 
-Adding 18mV to $latex V\_{\\textit{PIN12} &bg=000000&fg=ffffff}$ halves the cutoff frequency because of the negative exponential function, which allow us to get the 1V/oct scaling. So it all makes sense.
+Adding 18mV to $V\_{\\textit{PIN12}}$ halves the cutoff frequency because of the negative exponential function, which allow us to get the 1V/oct scaling. So it all makes sense.
 
 #### Modification compared to the datasheet
 

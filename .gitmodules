@@ -1,6 +1,3 @@
-[submodule "themes/smol"]
-	path = themes/smol
-	url = https://github.com/colorchestra/smol
 [submodule "public"]
 	path = public
 	url = https://github.com/KamikazeVildsvin/kromftronics-website-deploy.git
