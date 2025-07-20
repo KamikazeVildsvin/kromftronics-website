@@ -1,8 +1,17 @@
 # Kromftronics Theme
-
 Based on the [smol](https://github.com/colorchestra/smol) theme by colorchestra.
 
-## Theme options
+## Latex Rendering
+LaTex rendering have been implemented in this theme using the following guide: https://misha.brukman.net/blog/2022/04/writing-math-with-hugo/
+
+## Shortcodes
+Different short codes have been implemented:
+- `math`:
+    allows to create LaTeX math equations that uses the `\\` newline characters.
+- `audio`:
+    simple HTML audio player shortcode.
+
+## Theme Options
 Open the `config.toml` in the base of the Hugo site and ensure the theme option is set to `kromftronics-theme`.
 
 ```
