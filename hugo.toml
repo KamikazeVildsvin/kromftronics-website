@@ -5,37 +5,56 @@ theme = 'kromftronics-theme'
 
 # Privacy settings
 [privacy]
-  [privacy.youTube]
-    disable = false
-    privacyEnhanced = true
+      [privacy.youTube]
+            disable = false
+            privacyEnhanced = true
 
 # Parameters
 [params]
-    subtitle = "Electronic DIY Sound Machine"
-    dateFmt = "02.01.2006"
+      subtitle = "Electronic DIY Sound Machine"
+      dateFmt = "02.01.2006"
 
 # Header
 [menu]
-  [[menu.main]]
-        identifier = "posts"
-        name = "Posts"
-        url = "/posts/"
-        weight = 1 
+      [[menu.main]]
+            identifier = "posts"
+            name = "Posts"
+            url = "/posts/"
+            weight = 1 
 
-  [[menu.main]]
-        identifier = "categories"
-        name = "Categories"
-        url = "/categories/"
-        weight = 2 
+      [[menu.main]]
+            identifier = "categories"
+            name = "Categories"
+            url = "/categories/"
+            weight = 2
 
-  [[menu.main]]
-        identifier = "tags"
-        name = "Tags"
-        url = "/tags/"
-        weight = 3
+      [[menu.main]]
+            identifier = "tags"
+            name = "Tags"
+            url = "/tags/"
+            weight = 3
+
+      [[menu.main]]
+            identifier = "about"
+            name = "About"
+            url = "/about/"
+            weight = 4
+
+      [[menu.main]]
+            identifier = "contact"
+            name = "Contact"
+            url = "/contact/"
+            weight = 5
+
 
 # Footer
-  [[menu.footer]]
-        name = "Github"
-        url = "https://github.com/KamikazeVildsvin"
-        weight = 1 
+      [[menu.footer]]
+            name = "Github"
+            url = "https://github.com/KamikazeVildsvin"
+            weight = 1 
+
+      [[menu.footer]]
+            name = 'info@kromftronics.com'
+            url = 'mailto:info@kromftronics.com'
+            weight = 2
+
