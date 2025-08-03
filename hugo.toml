@@ -1,4 +1,4 @@
-baseURL = 'https://kamikazevildsvin.github.io/kromftronics-website-deploy/'
+baseURL = 'kromftronics.com'
 languageCode = 'en-us'
 title = 'Kromftronics'
 theme = 'kromftronics-theme'
