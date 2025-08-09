@@ -1,4 +1,4 @@
-baseURL = '/'
+baseURL = 'https://kromftronics.com/'
 languageCode = 'en-us'
 title = 'Kromftronics'
 theme = 'kromftronics-theme'

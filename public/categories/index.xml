@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Kromftronics</title>
-    <link>/categories/</link>
+    <link>https://kromftronics.com/categories/</link>
     <description>Recent content in Categories on Kromftronics</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 24 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://kromftronics.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Electronics</title>
-      <link>/categories/electronics/</link>
+      <link>https://kromftronics.com/categories/electronics/</link>
       <pubDate>Tue, 24 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/categories/electronics/</guid>
+      <guid>https://kromftronics.com/categories/electronics/</guid>
       <description></description>
     </item>
     <item>
       <title>Stompboxes</title>
-      <link>/categories/stompboxes/</link>
+      <link>https://kromftronics.com/categories/stompboxes/</link>
       <pubDate>Tue, 24 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/categories/stompboxes/</guid>
+      <guid>https://kromftronics.com/categories/stompboxes/</guid>
       <description></description>
     </item>
     <item>
       <title>Filters</title>
-      <link>/categories/filters/</link>
+      <link>https://kromftronics.com/categories/filters/</link>
       <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>/categories/filters/</guid>
+      <guid>https://kromftronics.com/categories/filters/</guid>
       <description></description>
     </item>
     <item>
       <title>Synthesizers</title>
-      <link>/categories/synthesizers/</link>
+      <link>https://kromftronics.com/categories/synthesizers/</link>
       <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>/categories/synthesizers/</guid>
+      <guid>https://kromftronics.com/categories/synthesizers/</guid>
       <description></description>
     </item>
   </channel>

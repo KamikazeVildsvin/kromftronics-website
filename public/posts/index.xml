@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Kromftronics</title>
-    <link>/posts/</link>
+    <link>https://kromftronics.com/posts/</link>
     <description>Recent content in Posts on Kromftronics</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 24 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://kromftronics.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rotten</title>
-      <link>/posts/rotten/</link>
+      <link>https://kromftronics.com/posts/rotten/</link>
       <pubDate>Tue, 24 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/posts/rotten/</guid>
+      <guid>https://kromftronics.com/posts/rotten/</guid>
       <description>&lt;p&gt;Saturation, overdrive, or distortion is really what makes an electrical guitar come alive. The sound and tone of the guitar can be sculptured and totally change the character of the instrument depending on which saturation is being used. This is also why there exists soooo many overdrive/distortion pedals out there. It is a very personal thing, what distortion pedal that you prefer. Personally, I like things to be a bit fuzzy while still having some overdrive character.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Ping Ting</title>
-      <link>/posts/the-ping-ting/</link>
+      <link>https://kromftronics.com/posts/the-ping-ting/</link>
       <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>/posts/the-ping-ting/</guid>
+      <guid>https://kromftronics.com/posts/the-ping-ting/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Filters are a really wonderful and powerful tool in music production and sound design. They can be used to control and &amp;ldquo;filter&amp;rdquo; out unwanted content of the original unprocessed sound, but can also be used as a creative tool to generate new and interesting sounds. One interesting use of filters as a sound design tool is filter pinging, which will be described later in this article. &lt;em&gt;The Ping Ting&lt;/em&gt; is essentially a filter box, containing three parallel high-Q configurable filters with built-in clipping, designed to be able to be &amp;ldquo;pinged&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Kiss</title>
-      <link>/posts/the-kiss/</link>
+      <link>https://kromftronics.com/posts/the-kiss/</link>
       <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>/posts/the-kiss/</guid>
+      <guid>https://kromftronics.com/posts/the-kiss/</guid>
       <description>&lt;p&gt;Ever since I started the journey of making electronic music some 10 years ago now, I&amp;rsquo;ve always been fascinated with how synthesizers and audio equipment work. This turned into the idea of making my own analog synthesizer, which I named &amp;ldquo;The Kiss&amp;rdquo; (I ended up giving it as a gift to my good friend by the nickname Kiss, hence the name). In this article, I will try to describe the design process and the errors I made along the way, which will hopefully serve as an inspiration for other people wanting to create their own analog synthesizer.&lt;/p&gt;</description>
     </item>
   </channel>
