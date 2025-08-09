@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Kromftronics</title>
-    <link>kromftronics.com/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Kromftronics</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 24 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="kromftronics.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Electronics</title>
-      <link>kromftronics.com/categories/electronics/</link>
+      <link>/categories/electronics/</link>
       <pubDate>Tue, 24 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>kromftronics.com/categories/electronics/</guid>
+      <guid>/categories/electronics/</guid>
       <description></description>
     </item>
     <item>
       <title>Stompboxes</title>
-      <link>kromftronics.com/categories/stompboxes/</link>
+      <link>/categories/stompboxes/</link>
       <pubDate>Tue, 24 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>kromftronics.com/categories/stompboxes/</guid>
+      <guid>/categories/stompboxes/</guid>
       <description></description>
     </item>
     <item>
       <title>Filters</title>
-      <link>kromftronics.com/categories/filters/</link>
+      <link>/categories/filters/</link>
       <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>kromftronics.com/categories/filters/</guid>
+      <guid>/categories/filters/</guid>
       <description></description>
     </item>
     <item>
       <title>Synthesizers</title>
-      <link>kromftronics.com/categories/synthesizers/</link>
+      <link>/categories/synthesizers/</link>
       <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>kromftronics.com/categories/synthesizers/</guid>
+      <guid>/categories/synthesizers/</guid>
       <description></description>
     </item>
   </channel>
