@@ -26,18 +26,10 @@ A quick search around the internet lead to and article from [ElectroSmash](https
 
 The gallery below shows the PCB that I have created and the enclosure that I made. I order all of the components and electro-mechanical hardware from [Banzai Music](https://www.banzaimusic.com/), including the pre-drilled casing.
 
-[![](images/rotten.jpeg)](https://kromftronics.com/rotten/)
-
-[![](images/signal-2024-07-11-201051_005.jpeg)](https://kromftronics.com/2024/07/11/pcbs-for-rotten-arrived/signal-2024-07-11-201051_005/)
-[![](images/signal-2024-10-16-083925_005.jpeg)](https://kromftronics.com/2024/10/17/rotten-the-rat-diy-clone-is-done/signal-2024-10-16-083925_005/)
-
-[![](images/signal-2024-10-16-083925_002.jpeg)](https://kromftronics.com/2024/10/17/rotten-the-rat-diy-clone-is-done/signal-2024-10-16-083925_002/)
-
-[![](images/signal-2024-07-11-201051_003.jpeg)](https://kromftronics.com/2024/07/11/pcbs-for-rotten-arrived/signal-2024-07-11-201051_003/)
-
-[![](images/signal-2024-10-16-083925_007-4072584745-e1729061466874.jpeg)](https://kromftronics.com/2024/10/17/rotten-the-rat-diy-clone-is-done/signal-2024-10-16-083925_007/)
-[![](images/signal-2024-10-16-083925_003-4124275248-e1729061339996.jpeg)](https://kromftronics.com/2024/10/17/rotten-the-rat-diy-clone-is-done/signal-2024-10-16-083925_003/)
-
-[![](images/layout.png)](https://kromftronics.com/layout/)
+{{< snap-gallery
+  src="images/rotten/gallery"
+  slideshowwidth=80%
+  slideshowrotate=false
+>}}
 
 You should be able to make your own clown by going to the GitHub page and generate the needed Gerber files from the KiCad project. The components are also listed on the interactive BOM on the GitHub repo. I was able to find all of the components at [Banzai Music](https://www.banzaimusic.com/), and most of the components are pretty standard components.
