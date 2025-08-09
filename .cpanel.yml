@@ -2,4 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/wmmkdwrs/public_html/
+    - /bin/rm -rf $DEPLOYPATH
     - /bin/cp -R public/ $DEPLOYPATH
