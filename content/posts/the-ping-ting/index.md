@@ -66,7 +66,7 @@ Filter pinging is a concept I got introduced to by the musician and YouTuber [Ha
 So what is filter pinging? In short, filter pinging is the process of exciting a highly resonant filter with some sort of impulse. A psychical equivalent to this is hitting a glass with a stick, which generates a clear tone that fades away quickly. The same can happen in electrical circuits. Exciting a resonant filter with an impulse will result in a exponentially decaying tone at the output of the filter, which is visualized in figure 1. The higher the resonance/Q-factor the longer and more prominent the oscillation will be. A bandpass filter is also preferable since the filter will only pass one frequency for very high Q-factors.
 
 {{< figure 
-  src="images/pinging-diagram.drawio.png" 
+  src="/images/the-ping-ting/pinging-diagram.drawio.png" 
   caption="_Figure 1: Conceptual diagram of bandpass filter pinging_" 
 >}}
 
@@ -77,7 +77,7 @@ So in order to create a filter that is good for pinging, the goal was a bandpass
 The filter topology I ended up using is know as [the state-variable filter](https://www.ti.com/lit/ds/symlink/uaf42.pdf), which can be seen below in figure 2. The state-variable filter is quite interesting architecture, since you get a lowpass, bandpass, and a highpass filter response with the same circuit (!!!!), depending on where you probe the output. Another important feature is that you can set the cutoff frequency and the Q-factor (resonance) of the filter independently, which is nice when you want to be able to control the amount of "pinging" separately from the frequency. The article about the state-variable filter from [electronics-tutorials](https://www.electronics-tutorials.ws/filter/state-variable-filter.html) is a great resource in order to understand how the state-variable filter works, and I would recommend that you read this article.
 
 {{< figure 
-  src="images/the-ping-ting-schematic-rev-1.1-page-4-1-edited.jpg" 
+  src="/images/the-ping-ting/the-ping-ting-schematic-rev-1.1-page-4-1-edited.jpg" 
   caption="_Figure 2: One of the three state-variable filters in \"The Ping Ting\"_" 
 >}}
 
@@ -118,7 +118,7 @@ After each filter, we have two anti-parallel diodes and a non-inverting opamp co
 The last output highpass filter is just added to removed the 4.5V offset voltage we introduced in our circuit to use our single +9V supply. I would admit that I could have just added the 1uF capacitor and the 1k resistor at the output of the last opamps, before the 100k volume potentiometer, but the circuit seems to be working fine, so I haven't changed the design.
 
 {{< snap-gallery
-  src="images/the-ping-ting/schematic"
+  src="/images/the-ping-ting/schematic"
   mode="slideshow"
   slideshowwidth=80%
 >}}
@@ -126,7 +126,7 @@ The last output highpass filter is just added to removed the 4.5V offset voltage
 KiCad has this very nice 3D render function, which lets you see the PCB with components included. It is a very neat tool to check the expected dimensions and to have a look at the PCB before you send it off to manufacturing. The gallery below shows the 3D model of the PCB and the PCB layout in KiCad. You might ask why I have chosen to use the VERY large yellow film capacitors. The answer is that I ordered a big box of random film capacitors from [Banzai Music](http://www.banzaimusic.com), so I had them laying around. Better to use what you have then let it sit in the cupboard.
 
 {{< snap-gallery
-  src="images/the-ping-ting/pcb"
+  src="/images/the-ping-ting/pcb"
   mode="slideshow"
   slideshowwidth=80%
 >}}
