@@ -204,7 +204,7 @@
 
 <p>So what is filter pinging? In short, filter pinging is the process of exciting a highly resonant filter with some sort of impulse. A psychical equivalent to this is hitting a glass with a stick, which generates a clear tone that fades away quickly. The same can happen in electrical circuits. Exciting a resonant filter with an impulse will result in a exponentially decaying tone at the output of the filter, which is visualized in figure 1. The higher the resonance/Q-factor the longer and more prominent the oscillation will be. A bandpass filter is also preferable since the filter will only pass one frequency for very high Q-factors.</p>
 <figure><img src="/images/the-ping-ting/pinging-diagram.drawio.png"
-    alt="Figure 1: Conceptual diagram of bandpass filter pinging"><figcaption>
+    alt="Figure 1: Conceptual diagram of bandpass filter pinging" width="90%"><figcaption>
       <p><em>Figure 1: Conceptual diagram of bandpass filter pinging</em></p>
     </figcaption>
 </figure>
@@ -213,7 +213,7 @@
 <h2 id="the-state-variable-filter">The State-Variable Filter</h2>
 <p>The filter topology I ended up using is know as <a href="https://www.ti.com/lit/ds/symlink/uaf42.pdf">the state-variable filter</a>, which can be seen below in figure 2. The state-variable filter is quite interesting architecture, since you get a lowpass, bandpass, and a highpass filter response with the same circuit (!!!!), depending on where you probe the output. Another important feature is that you can set the cutoff frequency and the Q-factor (resonance) of the filter independently, which is nice when you want to be able to control the amount of &ldquo;pinging&rdquo; separately from the frequency. The article about the state-variable filter from <a href="https://www.electronics-tutorials.ws/filter/state-variable-filter.html">electronics-tutorials</a> is a great resource in order to understand how the state-variable filter works, and I would recommend that you read this article.</p>
 <figure><img src="/images/the-ping-ting/the-ping-ting-schematic-rev-1.1-page-4-1-edited.jpg"
-    alt="Figure 2: One of the three state-variable filters in &ldquo;The Ping Ting&rdquo;"><figcaption>
+    alt="Figure 2: One of the three state-variable filters in &ldquo;The Ping Ting&rdquo;" width="80%"><figcaption>
       <p><em>Figure 2: One of the three state-variable filters in &ldquo;The Ping Ting&rdquo;</em></p>
     </figcaption>
 </figure>
