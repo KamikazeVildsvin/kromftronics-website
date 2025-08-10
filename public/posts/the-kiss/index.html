@@ -233,7 +233,38 @@
 </audio>
 
 <h2 id="table-of-content">Table of Content</h2>
-<p>TODO</p>
+ <div class="custom-toc">
+    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#audio-examples">Audio Examples</a></li>
+    <li><a href="#table-of-content">Table of Content</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#the-vco---as3340">The VCO - AS3340</a>
+      <ol>
+        <li><a href="#improvement-1---fixing-pitch-drift-with-applied-pwm">Improvement #1 - Fixing pitch drift with applied PWM</a></li>
+        <li><a href="#improvement-2---stable-tuning-and-temperature-compensation-circuitry">Improvement #2 - Stable tuning and temperature compensation circuitry</a></li>
+      </ol>
+    </li>
+    <li><a href="#the-vcf---as3320">The VCF - AS3320</a>
+      <ol>
+        <li><a href="#modification-compared-to-the-datasheet">Modification compared to the datasheet</a></li>
+        <li><a href="#frequency-cv-summing">Frequency CV Summing</a></li>
+      </ol>
+    </li>
+    <li><a href="#the-vca---as3360">The VCA - AS3360</a></li>
+    <li><a href="#envelopeadsr-generators---envgen8">Envelope/ADSR Generators - ENVGEN8</a>
+      <ol>
+        <li><a href="#control-inputs--cv-potentiometer-circuit">Control Inputs &amp; CV Potentiometer Circuit</a></li>
+        <li><a href="#vca--vcf-envelope-control-voltage">VCA &amp; VCF Envelope Control Voltage</a></li>
+        <li><a href="#looping-modes--time-scaling">Looping Modes &amp; Time Scaling</a></li>
+      </ol>
+    </li>
+    <li><a href="#power-supply-unit">Power Supply Unit</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ol>
+</nav>
+ </div>
+
 <h2 id="introduction">Introduction</h2>
 <p>The idea started when I saw a video by <a href="https://www.lookmumnocomputer.com/projects/#/cem-3340-diy-simple">Look Mum No Computer</a> (LMNC). He has been a great inspiration with all his crazy projects and DIY mentality. The video describes how to make a simple 1V/oct voltage controlled oscillator (VCO) using the CEM3340 chip (video below).</p>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -261,9 +292,9 @@
 
 <p>The chip is also temperature compensated, which means that the tuning of the oscillator is pretty stable across different ambient temperatures. This is usually something that is very difficult with analog oscillators. All in all, this chip makes it a lot easier to design a synthesizer if you are not that experienced.</p>
 <p>The datasheet example in the figure above could almost be used right out of the box. The three oscillator waveforms could be routed directly to an op-amp mixing circuit without much hassle. But, I wanted to be able to use a standard Eurorack power supply, which meant that I had to modify the circuit from using a +/-15V supply voltage to +/-12V. This meant resistors connected to the +/-15V supplies needed to be scaled down to prove the correct current. But, instead of giving the exact numbers here, I am going to describe two &ldquo;upgrades&rdquo; to the datasheet circuit that I implemented in order for the circuit to function correctly and adequate.</p>
-<h4 id="improvement-1---fixing-pitch-drift-with-applied-pwm">Improvement #1 - Fixing pitch drift with applied PWM</h4>
+<h3 id="improvement-1---fixing-pitch-drift-with-applied-pwm">Improvement #1 - Fixing pitch drift with applied PWM</h3>
 <p>A common issue with the datasheet circuit, where the negative supply is -15V, is a noticeable pitch shift of the VCO when Pulse Width Modulation (PWM) is applied to pin 5. I fixed this problem by having a local -5V regulated supply (like the 79L05 IC) at pin 3, which also means that the current limiting resistor REE can be omitted. Having a regulated -5V supply is also recommend by Rob Hordijk in his <a href="https://alfarzpp.lv/eng/sc/Tuning%20the%20AS3340.pdf">article</a>, which will be discussed in improvement #2.</p>
-<h4 id="improvement-2---stable-tuning-and-temperature-compensation-circuitry">Improvement #2 - Stable tuning and temperature compensation circuitry</h4>
+<h3 id="improvement-2---stable-tuning-and-temperature-compensation-circuitry">Improvement #2 - Stable tuning and temperature compensation circuitry</h3>
 <p>In the original AS3340 datasheet circuit, only one trimming potentiometer in RZ is used to &ldquo;tune&rdquo; the VCO, which makes the tuning process of the VCO very cumbersome and not as stable as it could be.</p>
 <p>Luckily, Rob Hordijk has made an excellent <a href="https://alfarzpp.lv/eng/sc/Tuning%20the%20AS3340.pdf">article</a> which describes more in-depth how the insides of the AS3340 works and suggests a different calibration circuit with more trim-pots, which makes the tuning and temperature compensation more efficient. The circuit and the calibration process can be seen below in figure 3, which is what I ended up using in the design of The Kiss. With this circuit, the PWM drifting is removed and the calibration of the AS3340 is a lot more systematical! (YAY) The only down-side is more trim-pots.</p>
 <p><a href="https://kromftronics.com/wp-content/uploads/2023/04/as3340-tuning-circuit-3098683545-e1721921110189.png">
@@ -317,9 +348,9 @@
 <p>where $C_P$ is the value of the capacitors connected to pin 4, 5, 11, and 16. The typical standard in control voltage for synthesizers is 1V/octave, which is why the 100kΩ and the 1k8Ω resistive divider are put before pin 12 since this converts a 1V change to an 18mV change:</p>
 <p>$${V_{\textit{PIN12}} = \frac{1\textnormal{k}8}{100\textnormal{k}+1\textnormal{k}8}\cdot1\textnormal{V} \approx 17.68\textnormal{mV}}$$</p>
 <p>Adding 18mV to $V_{\textit{PIN12}}$ halves the cutoff frequency because of the negative exponential function, which allow us to get the 1V/oct scaling. So it all makes sense.</p>
-<h4 id="modification-compared-to-the-datasheet">Modification compared to the datasheet</h4>
+<h3 id="modification-compared-to-the-datasheet">Modification compared to the datasheet</h3>
 <p>All in all, this datasheet circuit just worked out of the box when I did some testing on a breadboard, but I wanted the range of the cutoff filter to be a bit more &ldquo;bright&rdquo;. This was achieved by scaling the four 300pF filter capacitors CP down to 150pF, effectively increasing the baseline cutoff frequency by an octave as indicated by the cutoff frequency equation above. I also added a buffer between the SIGNAL OUTPUT and the resonance feedback (pin 8), since this was suggested by the <a href="https://electricdruid.net/cem3320-filter-designs/">Electric Druid</a> article to improve the frequency response of the filter at lower frequencies. And it is never a bad idea to add a buffer if you have an extra opamp lying around ( ‾ ʖ̫ ‾)</p>
-<h4 id="frequency-cv-summing">Frequency CV Summing</h4>
+<h3 id="frequency-cv-summing">Frequency CV Summing</h3>
 <p>As described above, the cutoff frequency of the filter can be controlled by applying a control voltage to pin 12 of the AS3320. The easy way to achieve a controllable voltage is by connecting a potentiometer between +12V and ground, but, as indicated by figure 1 at the start of this article, both the VCF and the VCA can be controlled by an ADSR envelope generator which also needs to be added somehow. So to be able to control the cutoff frequency with both a potentiometer and the envelope generator, I designed a frequency CV summing circuit, which can seen below in figure 6 with figure 7 showing a picture of the actual stripboard circuit.</p>
 <figure><img src="/images/the-kiss/vcf/the-kiss-freq-cv-mixer.drawio.png"
     alt="Figure 6: Schematic of the frequency CV summing circuit for The Kiss." width="80%"><figcaption>
@@ -362,7 +393,7 @@
 </figure>
 
 <p>The envelope output can be triggered by setting the input signal on the &ldquo;TRIGGER&rdquo; or &ldquo;GATE&rdquo; to +5V. The difference between the two is that the gate signal let&rsquo;s you settle on the sustain level specified by the CV on the &ldquo;SUSTAIN CV&rdquo; input if the gate signal is kept high. In contrast, the trigger signal only triggers the attack/decay envelope. For The Kiss, I tied the trigger and the gate signal together, which is the same as only using the gate signal. I found this to be the best use of the envelope generator for my taste.</p>
-<h4 id="control-inputs--cv-potentiometer-circuit">Control Inputs &amp; CV Potentiometer Circuit</h4>
+<h3 id="control-inputs--cv-potentiometer-circuit">Control Inputs &amp; CV Potentiometer Circuit</h3>
 <p>All of the pins labeled “CV” expect a voltage between 0V and 5V. These voltages can be controlled with the circuit in Figure 11, which creates a variable voltage between 0V and +5V that is lowpass filtered by the 1kΩ resistor and 100nF capacitor before reaching the input on the ENVGEN8. The lowpass filtering is added to remove noise and glitches that could appear from a noisy +5V supply and was suggested in the datasheet of the ENVGEN8.</p>
 <p>
 <figure>
@@ -378,7 +409,7 @@
 </figure>
 
 <p>A total of five of these CV circuits were implemented in The Kiss. One for each of the ADSR CV’s and one for the “TIME CV”. The attack, decay, and release CV inputs set the time scale between 1ms and 10s in combination with the time CV, which is a quite large range to work with. The “LEVEL CV” signal was tied to +5V since I wanted to use the full range of the envelope to control either the VCF or the VCA. The “MODE CV” input will described in one of the following subsections ( ‾ ʖ̫ ‾)</p>
-<h4 id="vca--vcf-envelope-control-voltage">VCA &amp; VCF Envelope Control Voltage</h4>
+<h3 id="vca--vcf-envelope-control-voltage">VCA &amp; VCF Envelope Control Voltage</h3>
 <p>As shown above in the block diagram of the AS3360 VCA in figure 8, the linear control voltage input expects a voltage between 0-2V to get the minimum and maximum gain. Since the output of the ENVGEN8 goes between 0-5V, I added a simple resistive divider like the one shown below in figure 12. Since the VCA was configured to use the linear control input, the ENVGEN8 was configured with exponential envelope shapes. This is done by leaving pin 4 on the chip unconnected.</p>
 <figure><img src="/images/the-kiss/envelope/envgen8-output-scaling.drawio.png"
     alt="Figure 12 Voltage divider used to scale the 0-5V output down to the 0-2V range needed by the VCA." width="50%"><figcaption>
@@ -387,7 +418,7 @@
 </figure>
 
 <p>For the VCF, the 0-5V output of the ENVGEN8 was routed without attenuation directly to the frequency CV summing circuit, since the frequency CV summing circuit in figure 6 already scales the voltage appropriately for the VCF.</p>
-<h4 id="looping-modes--time-scaling">Looping Modes &amp; Time Scaling</h4>
+<h3 id="looping-modes--time-scaling">Looping Modes &amp; Time Scaling</h3>
 <p>What sets the ENVGEN8 apart from a standard ADSR envelope is that it has three different modes of operation and a time scaling feature that scales all of the attack, decay, and release times by factor between 1x and 0.01x. These three envelope modes are quite powerful and essentially allows you to turn your ADSR envelope generator into an LFO! The three different modes are visualized below in figure 13, where the gate input control signal is shown in the top row and the equivalent output envelope voltage is shown in the bottom row.</p>
 <figure><img src="/images/the-kiss/envelope/envgen8-modes.drawio-1.png"
     alt="Figure 13: The three different modes for the ENVGEN8" width="90%"><figcaption>
