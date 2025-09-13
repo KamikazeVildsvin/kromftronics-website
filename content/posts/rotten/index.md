@@ -12,6 +12,7 @@ tags:
   - "projects"
   - "rat"
   - "stompbox"
+featured_image: "/images/rotten/gallery/01-rotten.jpeg"
 ---
 
 Saturation, overdrive, or distortion is really what makes an electrical guitar come alive. The sound and tone of the guitar can be sculptured and totally change the character of the instrument depending on which saturation is being used. This is also why there exists soooo many overdrive/distortion pedals out there. It is a very personal thing, what distortion pedal that you prefer. Personally, I like things to be a bit fuzzy while still having some overdrive character.

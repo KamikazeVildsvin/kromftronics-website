@@ -1,6 +1,7 @@
 ---
 title: "The Ping Ting"
 date: 2024-10-20
+laytout: "single"
 math: true
 categories: 
   - "electronics"
@@ -12,6 +13,7 @@ tags:
   - "projects"
   - "resonance"
   - "state-variable-filter"
+featured_image: "/images/the-ping-ting/intro-gallery/image1.jpeg"
 ---
 
 ## Introduction
@@ -68,7 +70,7 @@ So what is filter pinging? In short, filter pinging is the process of exciting a
 {{< figure 
   src="/images/the-ping-ting/pinging-diagram.drawio.png" 
   caption="_Figure 1: Conceptual diagram of bandpass filter pinging_" 
-  width=90%
+  width=720px
 >}}
 
 So in order to create a filter that is good for pinging, the goal was a bandpass filter topology that can achieve high Q-factors. The book [Active Filter Cookbook](https://archive.org/details/activefiltercook0000lanc) by Don Lancaster was a great reference in this "search-for-the-right-filter". Don goes through different filter types and the math behind them. The filter that caught my attention was the state-variable filter.
@@ -80,7 +82,7 @@ The filter topology I ended up using is know as [the state-variable filter](http
 {{< figure 
   src="/images/the-ping-ting/the-ping-ting-schematic-rev-1.1-page-4-1-edited.jpg" 
   caption="_Figure 2: One of the three state-variable filters in \"The Ping Ting\"_" 
-  width=80%
+  width=640px
 >}}
 
 The state-variable filter is a second-order filter that is implemented using an inverting summing amplifier (U106A in figure 2) and two integrators (U106B and U106C in figure 2). The math is a bit complicated, but essentially, you control the cutoff frequency of both the lowpass, highpass, and bandpass filter as

@@ -1,8 +1,7 @@
 ---
 draft: false
-toc: true
-tocBorder: true
 math: true
+layout: "single"
 title: "The Kiss"
 date: 2024-07-25
 categories: 
@@ -17,6 +16,7 @@ tags:
   - "monophonic"
   - "projects"
   - "synth-diy"
+featured_image: "/images/the-kiss/intro-gallery/01-front-panel-left.jpeg"
 ---
 
 Ever since I started the journey of making electronic music some 10 years ago now, I've always been fascinated with how synthesizers and audio equipment work. This turned into the idea of making my own analog synthesizer, which I named "The Kiss" (I ended up giving it as a gift to my good friend by the nickname Kiss, hence the name). In this article, I will try to describe the design process and the errors I made along the way, which will hopefully serve as an inspiration for other people wanting to create their own analog synthesizer.
@@ -60,7 +60,7 @@ One of the difficulties of making a synth was knowing were to start. I knew kind
 {{< figure 
     src="/images/the-kiss/thekissblockdiagram.drawio.png" 
     caption="_Figure 1: The Kiss simplified block diagram_"
-    width=90%
+    width=720px
 >}}
 
 Since this design was one of my first, and the fact that I also made the entire circuit on stripboard, I unfortunately don't have any detailed schematics or PCB files available (🥲). But I should be able to explain the important design choices for each part of the synthesizer for the reader to be able to create a synthesizer with similar results.
@@ -76,7 +76,7 @@ A block diagram of the AS3340 chip and its associated pins can be seen in the fi
 {{< figure 
     src="/images/the-kiss/vco/as3340-blockdiagram-4068132025-e1714589842511.png" 
     caption="_Figure 2: AS3340 block diagram – source: AS3340 datasheet_" 
-    width=70%
+    width=560px
 >}}
 
 The chip is also temperature compensated, which means that the tuning of the oscillator is pretty stable across different ambient temperatures. This is usually something that is very difficult with analog oscillators. All in all, this chip makes it a lot easier to design a synthesizer if you are not that experienced.
@@ -93,12 +93,10 @@ In the original AS3340 datasheet circuit, only one trimming potentiometer in RZ 
 
 Luckily, Rob Hordijk has made an excellent [article](https://alfarzpp.lv/eng/sc/Tuning%20the%20AS3340.pdf) which describes more in-depth how the insides of the AS3340 works and suggests a different calibration circuit with more trim-pots, which makes the tuning and temperature compensation more efficient. The circuit and the calibration process can be seen below in figure 3, which is what I ended up using in the design of The Kiss. With this circuit, the PWM drifting is removed and the calibration of the AS3340 is a lot more systematical! (YAY) The only down-side is more trim-pots.
 
-[![]()](https://kromftronics.com/wp-content/uploads/2023/04/as3340-tuning-circuit-3098683545-e1721921110189.png)
-
 {{< figure
     src="/images/the-kiss/vco/as3340-tuning-circuit-3098683545-e1721921110189.png" 
     caption="_Figure 3: Improved AS3340 calibration circuit by Rob Hordijk - source: article by Rob_" 
-    width=90%
+    width=720px
 >}}
 
 As described in the [article](https://alfarzpp.lv/eng/sc/Tuning%20the%20AS3340.pdf) by Rob, the modified calibration circuitry affects the core of the AS3340 that is responsible for the temperature compensation and the 1V/oct control voltage. Figure 4, which represents the core of the AS3340, shows a band gap reference, an analog multiplier (known as a Gilbert Cell), and a classic exponential converter. The combination of the three is what generates a temperature stable 1V/oct VCO.
@@ -108,7 +106,7 @@ NOTE: It is not important to understand how all of this circuitry works in order
 {{< figure 
     src="/images/the-kiss/vco/as3340-tempco-expo-core.png" 
     caption="_Figure 4: AS3340 core, consisting of a band gap reference, an analog multiplier, and an exponential converter - source: AS3340 datasheet_" 
-    width=60%
+    width=480px
 >}}
 
 If you are interested in getting a better understanding of the inner workings of the chip, how the exponential converter works, and WHY temperature is a big problem in analog VCO's, then I would recommend you check out the video below by Professor Aaron Lanterman. All of his videos are gold and has help me a lot in getting a better understanding of how analog synthesizer circuits work.
@@ -127,7 +125,7 @@ The filter in The Kiss is a classic 24dB/oct lowpass filter with resonance contr
 {{< figure 
     src="/images/the-kiss/vcf/as3320-datasheet-lowpass-1.png" 
     caption="_Figure 5: The AS3320 datasheet 24dB/oct lowpass filter from the application note - source: AS3320 datasheet_" 
-    width=90%
+    width=720px
 >}}
 
 Figure 5 above shows the datasheet 24dB/oct lowpass filter. It looks quite overwhelming, but in essence, it is four identical 6dB/oct voltage-controlled lowpass filter stages connected in series with the output of the last stage being fed back into the first stage to create the resonance. The amount of resonance in the filter can be controlled by the internal feedback VCA (named RES VCA in figure 5), where the gain of the feedback VCA is determined by the input current on pin 9. Each lowpass filter consist of one variable gain amplifier (∆A), an external capacitor, and a buffer (B). For more details on how all of these different elements works together, the original [CEM3320](https://nebula.wsimg.com/f89efadae26b3ee39839dc6b51665370?AccessKeyId=E68C2B1C2930EF53D3A4&disposition=0&alloworigin=1) datasheet is a great resource in terms of understanding how the exponential converter, the variable gain amplifiers, and the capacitors "creates" a voltage-controlled filter. The datasheet also derives the equations that describes the operation of the filter. To get a basic understanding of the operation of the circuit, I'm going to give a short summary of the essential equations from the datasheet.
@@ -157,7 +155,7 @@ As described above, the cutoff frequency of the filter can be controlled by appl
 {{< figure 
     src="/images/the-kiss/vcf/the-kiss-freq-cv-mixer.drawio.png" 
     caption="_Figure 6: Schematic of the frequency CV summing circuit for The Kiss._" 
-    width=80%
+    width=640px
 >}}
 
 The circuit is an inverting opamp mixer with a diode in the feedback path, which makes sure that the output voltage doesn't go lower than one diode drop (400mV to 700mV depending on the diode) since the AS3320 doesn't "like" large negative voltages on PIN 12. The 100kΩ resistor connected to -12V sets the output offset so when both the frequency potentiometer and envelope voltages are 0V, the output is at 12V. This sets the lowest cutoff frequency of the filter. The 51kΩ resistors that connect to the frequency potentiometer and the envelope voltage create a gain of -2 which seemed to be sufficient for a nice response and feel.
@@ -167,7 +165,7 @@ You might wonder why the circuit is inverting the control voltage from the poten
 {{< figure 
     src="/images/the-kiss/intro-gallery/07-perfboard-mixer-and-cv-with-labels.jpeg" 
     caption="_Figure 7: picture of the stripboard circuit for the frequency CV summing ciruit and the waveform mixer._" 
-    width=60%
+    width=480px
 >}}
 
 But there you go, that is essentially the VCF! The ASS3320 made it very easy to construct a nice sound 24dB/oct analog lowpass filter without having to deal with the tedious process of matching discrete transistor and temperature compensation.
@@ -179,7 +177,7 @@ The last part of the signal path in The Kiss is the VCA, again, implemented usin
 {{< figure 
     src="/images/the-kiss/vca/as3360-datasheet-2.png" 
     caption="_Figure 8: Block diagram of the AS3360 dual VCA - source: AS3360 datasheet_" 
-    width=60%
+    width=480px
 >}}
 
 The AS3360 is a current-in current-out VCA, which means that the input voltage needs to be converted to a current with a resistor and the output of the VCA needs to be converted to a voltage by dumping the current into a resistor or a [transimpedance amplifier](https://en.wikipedia.org/wiki/Transimpedance_amplifier) (TIA). The implementation used in The Kiss is a 47kΩ input resistor and an output TIA with the same 47kΩ resistor in the feedback path, which is the configuration used for channel one in figure 8. The TIA keeps the output voltage of the VCA constant and buffers the output which provides a low impedance output for The Kiss. Super simple and not a lot of external components!
@@ -193,7 +191,7 @@ You can't design a classic monophonic synthesizer without some sort of envelope 
 {{< figure 
     src="/images/the-kiss/envelope/perfboard-as3360-and-envgen-1.jpeg" 
     caption="_Figure 9: ENVGEN8, AS3360, and a opamp chip serving as the TIA for the VCA._" 
-    width=70%
+    width=560px
 >}}
 
 The pinout of the chip can be seen below in figure 10. The ENVGEN8 is a digital envelope generator chip that does the classic ADSR envelope thing with controllable attack, decay, sustain, and release, BUT, it has some extra features that the analog Alfa ADSR envelope generator ([AS3310](https://alfarzpp.lv/eng/sc/AS3310.pdf)) doesn't have, like time scaling and loop/LFO modes (this will be covered below). It also only needs one +5V supply, which is nice compared to all of the other dual-rail chips used in the rest of The Kiss.
@@ -201,7 +199,7 @@ The pinout of the chip can be seen below in figure 10. The ENVGEN8 is a digital 
 {{< figure 
     src="/images/the-kiss/envelope/envgen8-pinout.png?w=1024" 
     caption="_Figure 10: pinout of the ENVGEN8 - source: ENVGEN8 datasheet_" 
-    width=50%
+    width=400px
 >}}
 
 The envelope output can be triggered by setting the input signal on the "TRIGGER" or "GATE" to +5V. The difference between the two is that the gate signal let's you settle on the sustain level specified by the CV on the "SUSTAIN CV" input if the gate signal is kept high. In contrast, the trigger signal only triggers the attack/decay envelope. For The Kiss, I tied the trigger and the gate signal together, which is the same as only using the gate signal. I found this to be the best use of the envelope generator for my taste.
@@ -215,7 +213,7 @@ All of the pins labeled “CV” expect a voltage between 0V and 5V. These volta
 {{< figure 
     src="/images/the-kiss/envelope/envgen8-cv-circuit.drawio.png" 
     caption="_Figure 11: CV circuit used for the ENVGEN8_" 
-    width=50%
+    width=400px
 >}}
 
 
@@ -228,7 +226,7 @@ As shown above in the block diagram of the AS3360 VCA in figure 8, the linear co
 {{< figure 
     src="/images/the-kiss/envelope/envgen8-output-scaling.drawio.png" 
     caption="_Figure 12 Voltage divider used to scale the 0-5V output down to the 0-2V range needed by the VCA_." 
-    width=50%
+    width=400px
 >}}
 
 For the VCF, the 0-5V output of the ENVGEN8 was routed without attenuation directly to the frequency CV summing circuit, since the frequency CV summing circuit in figure 6 already scales the voltage appropriately for the VCF.
@@ -240,7 +238,7 @@ What sets the ENVGEN8 apart from a standard ADSR envelope is that it has three d
 {{< figure 
     src="/images/the-kiss/envelope/envgen8-modes.drawio-1.png" 
     caption="_Figure 13: The three different modes for the ENVGEN8_" 
-    width=90%
+    width=720px
 >}}
 
 The three different can be summarized as follows:
@@ -261,7 +259,7 @@ The three different modes are selected by using the circuit in figure 14 below. 
 {{< figure 
     src="/images/the-kiss/envelope/envgen8-mode-cv.drawio.png" 
     caption="_figure 14: Mode CV switching circuit._" 
-    width=50%
+    width=400px
 >}}
 
 So that is basically the ENVGEN8 ADSR chip! Again, quite easy to use with only a few external components and potentiometers. And now for the grand finale ( ‾ ʖ̫ ‾)
@@ -277,7 +275,7 @@ The PSU for The Kiss can be seen below in Figure 15 which is a stripboard implem
 {{< figure 
     src="/images/the-kiss/intro-gallery/08-perfboard-psu.jpeg" 
     caption="_Figure 15: The Kiss power supply unit, +/-12V & +5V_" 
-    width=60%
+    width=480px
 >}}
 
 The PSU is acctually just an Eurorack PSU, which is why I designed The Kiss to use +/-12V instead of the +/-15V that the datasheet specified for the VCO, VCF, and VCA chips. This means that in theory I could have used a 16 pin Eurorack supply that includes a +5V supply (notice the ribbon cable and IDC connector in the PSU below). I went for the discrete stripboard version to save time and money and also learn a little bit along the way. If you don't want to bother making a PSU yourself, you could probally get away with buying an Eurorack PSU instead.

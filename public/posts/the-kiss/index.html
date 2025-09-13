@@ -274,7 +274,7 @@
 <p>By using the CEM3340 as the foundation for the synthesizer, creating my own seemed more realistic with the limited knowledge I had about analog circuits at that point in time.</p>
 <p>One of the difficulties of making a synth was knowing were to start. I knew kinda what type of synth I wanted. A monophonic synth using the CEM3340 VCO plus a voltage controlled filter (VCF) and a voltage controlled amplifier (VCA), both of which had their own ADSR envelope generator. In other words, a very standard an classic analog monophonic synthesizer. The block diagram below shows the basic architecture I ended up with, consisting of the aforementioned VCO, VCF, and VCA (plus some ADSR&rsquo;s and some mixers).</p>
 <figure><img src="/images/the-kiss/thekissblockdiagram.drawio.png"
-    alt="Figure 1: The Kiss simplified block diagram" width="90%"><figcaption>
+    alt="Figure 1: The Kiss simplified block diagram" width="720px"><figcaption>
       <p><em>Figure 1: The Kiss simplified block diagram</em></p>
     </figcaption>
 </figure>
@@ -285,7 +285,7 @@
 <p>Since the <a href="https://nebula.wsimg.com/1c34939ca17fdcf07c8ceee4661ba253?AccessKeyId=E68C2B1C2930EF53D3A4&amp;disposition=0&amp;alloworigin=1">CEM3340</a> chip is quite hard to find, and also expensive, the cheaper <a href="https://alfarzpp.lv/eng/sc/AS3340.php">AS3340</a> showed up as an alternative. A quick search around the internet for suppliers of the AS3340 led to <a href="https://electricdruid.net/">Electric Druid</a>, which I discorvered as a great webshop and resource for synth DIY stuff. Electric Druid also has a lot of other CEM chip clones from Alfa, including a VCF (<a href="https://alfarzpp.lv/eng/sc/AS3320.php">AS3320</a>) and a VCA (<a href="https://alfarzpp.lv/eng/sc/AS3360.php">AS3360</a>).</p>
 <p>A block diagram of the AS3340 chip and its associated pins can be seen in the figure below. The cool thing about this chip is that it contains three different classic oscillator waveforms in one single chip. A Triangle wave at pin 10, a sawtooth wave at pin 8, and pulse wave at pin 4. The frequency of the oscillator is controlled with 1V/oct control voltage, by applying the control voltage to one of the 100k resistors that are connected to pin 15.</p>
 <figure><img src="/images/the-kiss/vco/as3340-blockdiagram-4068132025-e1714589842511.png"
-    alt="Figure 2: AS3340 block diagram – source: AS3340 datasheet" width="70%"><figcaption>
+    alt="Figure 2: AS3340 block diagram – source: AS3340 datasheet" width="560px"><figcaption>
       <p><em>Figure 2: AS3340 block diagram – source: AS3340 datasheet</em></p>
     </figcaption>
 </figure>
@@ -297,15 +297,8 @@
 <h3 id="improvement-2---stable-tuning-and-temperature-compensation-circuitry">Improvement #2 - Stable tuning and temperature compensation circuitry</h3>
 <p>In the original AS3340 datasheet circuit, only one trimming potentiometer in RZ is used to &ldquo;tune&rdquo; the VCO, which makes the tuning process of the VCO very cumbersome and not as stable as it could be.</p>
 <p>Luckily, Rob Hordijk has made an excellent <a href="https://alfarzpp.lv/eng/sc/Tuning%20the%20AS3340.pdf">article</a> which describes more in-depth how the insides of the AS3340 works and suggests a different calibration circuit with more trim-pots, which makes the tuning and temperature compensation more efficient. The circuit and the calibration process can be seen below in figure 3, which is what I ended up using in the design of The Kiss. With this circuit, the PWM drifting is removed and the calibration of the AS3340 is a lot more systematical! (YAY) The only down-side is more trim-pots.</p>
-<p><a href="https://kromftronics.com/wp-content/uploads/2023/04/as3340-tuning-circuit-3098683545-e1721921110189.png">
-<figure>
-  <img src="" alt="" />
-</figure>
-
-
-</a></p>
 <figure><img src="/images/the-kiss/vco/as3340-tuning-circuit-3098683545-e1721921110189.png"
-    alt="Figure 3: Improved AS3340 calibration circuit by Rob Hordijk - source: article by Rob" width="90%"><figcaption>
+    alt="Figure 3: Improved AS3340 calibration circuit by Rob Hordijk - source: article by Rob" width="720px"><figcaption>
       <p><em>Figure 3: Improved AS3340 calibration circuit by Rob Hordijk - source: article by Rob</em></p>
     </figcaption>
 </figure>
@@ -313,7 +306,7 @@
 <p>As described in the <a href="https://alfarzpp.lv/eng/sc/Tuning%20the%20AS3340.pdf">article</a> by Rob, the modified calibration circuitry affects the core of the AS3340 that is responsible for the temperature compensation and the 1V/oct control voltage. Figure 4, which represents the core of the AS3340, shows a band gap reference, an analog multiplier (known as a Gilbert Cell), and a classic exponential converter. The combination of the three is what generates a temperature stable 1V/oct VCO.</p>
 <p>NOTE: It is not important to understand how all of this circuitry works in order to be able to use the chip! This is just &ldquo;nice-to-know&rdquo;, in case you would like to have a better understanding of what is happening inside the chip, if you potentially want to be able to make your own discrete VCO some day.</p>
 <figure><img src="/images/the-kiss/vco/as3340-tempco-expo-core.png"
-    alt="Figure 4: AS3340 core, consisting of a band gap reference, an analog multiplier, and an exponential converter - source: AS3340 datasheet" width="60%"><figcaption>
+    alt="Figure 4: AS3340 core, consisting of a band gap reference, an analog multiplier, and an exponential converter - source: AS3340 datasheet" width="480px"><figcaption>
       <p><em>Figure 4: AS3340 core, consisting of a band gap reference, an analog multiplier, and an exponential converter - source: AS3340 datasheet</em></p>
     </figcaption>
 </figure>
@@ -335,7 +328,7 @@
 
 </a>
 <figure><img src="/images/the-kiss/vcf/as3320-datasheet-lowpass-1.png"
-    alt="Figure 5: The AS3320 datasheet 24dB/oct lowpass filter from the application note - source: AS3320 datasheet" width="90%"><figcaption>
+    alt="Figure 5: The AS3320 datasheet 24dB/oct lowpass filter from the application note - source: AS3320 datasheet" width="720px"><figcaption>
       <p><em>Figure 5: The AS3320 datasheet 24dB/oct lowpass filter from the application note - source: AS3320 datasheet</em></p>
     </figcaption>
 </figure>
@@ -353,7 +346,7 @@
 <h3 id="frequency-cv-summing">Frequency CV Summing</h3>
 <p>As described above, the cutoff frequency of the filter can be controlled by applying a control voltage to pin 12 of the AS3320. The easy way to achieve a controllable voltage is by connecting a potentiometer between +12V and ground, but, as indicated by figure 1 at the start of this article, both the VCF and the VCA can be controlled by an ADSR envelope generator which also needs to be added somehow. So to be able to control the cutoff frequency with both a potentiometer and the envelope generator, I designed a frequency CV summing circuit, which can seen below in figure 6 with figure 7 showing a picture of the actual stripboard circuit.</p>
 <figure><img src="/images/the-kiss/vcf/the-kiss-freq-cv-mixer.drawio.png"
-    alt="Figure 6: Schematic of the frequency CV summing circuit for The Kiss." width="80%"><figcaption>
+    alt="Figure 6: Schematic of the frequency CV summing circuit for The Kiss." width="640px"><figcaption>
       <p><em>Figure 6: Schematic of the frequency CV summing circuit for The Kiss.</em></p>
     </figcaption>
 </figure>
@@ -361,7 +354,7 @@
 <p>The circuit is an inverting opamp mixer with a diode in the feedback path, which makes sure that the output voltage doesn&rsquo;t go lower than one diode drop (400mV to 700mV depending on the diode) since the AS3320 doesn&rsquo;t &ldquo;like&rdquo; large negative voltages on PIN 12. The 100kΩ resistor connected to -12V sets the output offset so when both the frequency potentiometer and envelope voltages are 0V, the output is at 12V. This sets the lowest cutoff frequency of the filter. The 51kΩ resistors that connect to the frequency potentiometer and the envelope voltage create a gain of -2 which seemed to be sufficient for a nice response and feel.</p>
 <p>You might wonder why the circuit is inverting the control voltage from the potentiometer and the envelope generator. The reason is that the FREQ CV input on the AS3320 actually expects an inverted input, meaning that a drop of 1V on the FREQ CV input results in a rise in cutoff frequency of one octave due to the minus sign in the exponential conversion in the equation for the cutoff frequency which was described above.</p>
 <figure><img src="/images/the-kiss/intro-gallery/07-perfboard-mixer-and-cv-with-labels.jpeg"
-    alt="Figure 7: picture of the stripboard circuit for the frequency CV summing ciruit and the waveform mixer." width="60%"><figcaption>
+    alt="Figure 7: picture of the stripboard circuit for the frequency CV summing ciruit and the waveform mixer." width="480px"><figcaption>
       <p><em>Figure 7: picture of the stripboard circuit for the frequency CV summing ciruit and the waveform mixer.</em></p>
     </figcaption>
 </figure>
@@ -370,7 +363,7 @@
 <h2 id="the-vca---as3360">The VCA - AS3360</h2>
 <p>The last part of the signal path in The Kiss is the VCA, again, implemented using a chip from Alfa, the <a href="https://alfarzpp.lv/eng/sc/AS3360.pdf">AS3360</a>, which can be seen below in figure 8 (you get the trend). The AS3360 is a dual VCA chip which have the possibility to control the gain with a linear or exponential scaling by using a build-in linear to logarithmic converter.</p>
 <figure><img src="/images/the-kiss/vca/as3360-datasheet-2.png"
-    alt="Figure 8: Block diagram of the AS3360 dual VCA - source: AS3360 datasheet" width="60%"><figcaption>
+    alt="Figure 8: Block diagram of the AS3360 dual VCA - source: AS3360 datasheet" width="480px"><figcaption>
       <p><em>Figure 8: Block diagram of the AS3360 dual VCA - source: AS3360 datasheet</em></p>
     </figcaption>
 </figure>
@@ -380,14 +373,14 @@
 <h2 id="envelopeadsr-generators---envgen8">Envelope/ADSR Generators - ENVGEN8</h2>
 <p>You can&rsquo;t design a classic monophonic synthesizer without some sort of envelope generator. I chose to design The Kiss with two ADSR envelope generators; an optional envelope generator for the VCF cutoff frequency, and a hardwired envelope generator for the output VCA gain (as indicated by the block diagram in figure 1). Instead of using an Alfa clone, like I have used in the rest of the synth (I know, wild!), I came across an interesting IC designed by Electric Druid; the <a href="https://electricdruid.net/product/envgen8/">ENVGEN8</a>. In this section, I&rsquo;m going to explain how the ENVGEN8 functions and how I used the ENVGEN8 in The Kiss to control the VCA and VCF, but I would recommend that you take a look at the <a href="https://electricdruid.net/datasheets/ENVGEN8Datasheet.pdf">datasheet</a> as well, since you can find more details and goodies that I&rsquo;m not covering.</p>
 <figure><img src="/images/the-kiss/envelope/perfboard-as3360-and-envgen-1.jpeg"
-    alt="Figure 9: ENVGEN8, AS3360, and a opamp chip serving as the TIA for the VCA." width="70%"><figcaption>
+    alt="Figure 9: ENVGEN8, AS3360, and a opamp chip serving as the TIA for the VCA." width="560px"><figcaption>
       <p><em>Figure 9: ENVGEN8, AS3360, and a opamp chip serving as the TIA for the VCA.</em></p>
     </figcaption>
 </figure>
 
 <p>The pinout of the chip can be seen below in figure 10. The ENVGEN8 is a digital envelope generator chip that does the classic ADSR envelope thing with controllable attack, decay, sustain, and release, BUT, it has some extra features that the analog Alfa ADSR envelope generator (<a href="https://alfarzpp.lv/eng/sc/AS3310.pdf">AS3310</a>) doesn&rsquo;t have, like time scaling and loop/LFO modes (this will be covered below). It also only needs one +5V supply, which is nice compared to all of the other dual-rail chips used in the rest of The Kiss.</p>
 <figure><img src="/images/the-kiss/envelope/envgen8-pinout.png?w=1024"
-    alt="Figure 10: pinout of the ENVGEN8 - source: ENVGEN8 datasheet" width="50%"><figcaption>
+    alt="Figure 10: pinout of the ENVGEN8 - source: ENVGEN8 datasheet" width="400px"><figcaption>
       <p><em>Figure 10: pinout of the ENVGEN8 - source: ENVGEN8 datasheet</em></p>
     </figcaption>
 </figure>
@@ -403,7 +396,7 @@
 
 </p>
 <figure><img src="/images/the-kiss/envelope/envgen8-cv-circuit.drawio.png"
-    alt="Figure 11: CV circuit used for the ENVGEN8" width="50%"><figcaption>
+    alt="Figure 11: CV circuit used for the ENVGEN8" width="400px"><figcaption>
       <p><em>Figure 11: CV circuit used for the ENVGEN8</em></p>
     </figcaption>
 </figure>
@@ -412,7 +405,7 @@
 <h3 id="vca--vcf-envelope-control-voltage">VCA &amp; VCF Envelope Control Voltage</h3>
 <p>As shown above in the block diagram of the AS3360 VCA in figure 8, the linear control voltage input expects a voltage between 0-2V to get the minimum and maximum gain. Since the output of the ENVGEN8 goes between 0-5V, I added a simple resistive divider like the one shown below in figure 12. Since the VCA was configured to use the linear control input, the ENVGEN8 was configured with exponential envelope shapes. This is done by leaving pin 4 on the chip unconnected.</p>
 <figure><img src="/images/the-kiss/envelope/envgen8-output-scaling.drawio.png"
-    alt="Figure 12 Voltage divider used to scale the 0-5V output down to the 0-2V range needed by the VCA." width="50%"><figcaption>
+    alt="Figure 12 Voltage divider used to scale the 0-5V output down to the 0-2V range needed by the VCA." width="400px"><figcaption>
       <p><em>Figure 12 Voltage divider used to scale the 0-5V output down to the 0-2V range needed by the VCA</em>.</p>
     </figcaption>
 </figure>
@@ -421,7 +414,7 @@
 <h3 id="looping-modes--time-scaling">Looping Modes &amp; Time Scaling</h3>
 <p>What sets the ENVGEN8 apart from a standard ADSR envelope is that it has three different modes of operation and a time scaling feature that scales all of the attack, decay, and release times by factor between 1x and 0.01x. These three envelope modes are quite powerful and essentially allows you to turn your ADSR envelope generator into an LFO! The three different modes are visualized below in figure 13, where the gate input control signal is shown in the top row and the equivalent output envelope voltage is shown in the bottom row.</p>
 <figure><img src="/images/the-kiss/envelope/envgen8-modes.drawio-1.png"
-    alt="Figure 13: The three different modes for the ENVGEN8" width="90%"><figcaption>
+    alt="Figure 13: The three different modes for the ENVGEN8" width="720px"><figcaption>
       <p><em>Figure 13: The three different modes for the ENVGEN8</em></p>
     </figcaption>
 </figure>
@@ -450,7 +443,7 @@
 <p>The time scaling CV also works in all of these modes, which means that it can be seen as a sort of &ldquo;LFO rate&rdquo; when the ENVGEN8 is in one of the looping modes. Very handy! This is also what you heard in the audio example in the start of the articled named &ldquo;free running mode&rdquo;.</p>
 <p>The three different modes are selected by using the circuit in figure 14 below. An on-off-on switch and two resistors is used to generate 5V, 2.5V and 0V, which are the voltage levels that tells the ENVGEN8 which mode it should be in. You could actually have used the same continuous CV circuit in figure 10 that the rest of the CV inputs used. But, having a switch seemed to be a more &ldquo;clean&rdquo; solution. This was also the circuit that the ENVGEN8 datasheet suggested as the solution.</p>
 <figure><img src="/images/the-kiss/envelope/envgen8-mode-cv.drawio.png"
-    alt="figure 14: Mode CV switching circuit." width="50%"><figcaption>
+    alt="figure 14: Mode CV switching circuit." width="400px"><figcaption>
       <p><em>figure 14: Mode CV switching circuit.</em></p>
     </figcaption>
 </figure>
@@ -467,7 +460,7 @@
 
 </p>
 <figure><img src="/images/the-kiss/intro-gallery/08-perfboard-psu.jpeg"
-    alt="Figure 15: The Kiss power supply unit, &#43;/-12V &amp; &#43;5V" width="60%"><figcaption>
+    alt="Figure 15: The Kiss power supply unit, &#43;/-12V &amp; &#43;5V" width="480px"><figcaption>
       <p><em>Figure 15: The Kiss power supply unit, +/-12V &amp; +5V</em></p>
     </figcaption>
 </figure>

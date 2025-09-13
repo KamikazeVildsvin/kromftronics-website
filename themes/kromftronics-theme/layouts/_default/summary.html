@@ -1,6 +1,22 @@
 <article>
-	<h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+	{{ if .Params.featured_image }}
+		<h1 style="text-align:center; margin-bottom:0"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+		{{ with  .Params.featured_image}}
+			<center>
+				<img src={{ . }} alt="Featured Image", class="responsive-image">
+			</center>
+		{{ end }}
+	{{ else }}
+		<h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+	{{ end }}
 	<b><time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time></b>
+	<br>
+	categories:
+	{{ range .Params.categories}}
+	<a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+	{{ end }}
+	<br>
+	tags:
 	{{ range .Params.tags }}
 	<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
 	{{ end }}

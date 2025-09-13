@@ -15,7 +15,7 @@ tags:
     - 'four-voice'
     - 'sinewave'
     - 'oscillators'
-featured_image: '/imaged/solstrejf/control-interface/mod-matrix-and-voiceboard-control.png'
+featured_image: '/images/solstrejf/control-interface/mod-matrix-and-voiceboard-control.png'
 ---
 
 Solstrejf, roughly translated from Danish to "sun streak" or "sun touch", is a four-voice analog sine wave drone oscillator. 
@@ -40,7 +40,7 @@ A modulation matrix, which would allow for all four voices to modulate parameter
 {{< figure 
     src="/images/solstrejf/blockdiagrams/blokdiagram-solstrejf.jpeg" 
     caption="Figure 1: hand drawing of the initial Solstrejf block diagram" 
-    width=60%
+    width=480px
 >}}
 
 The basic idea and block diagram can be seen above in figure 1, where four identical voice boards are connected to the mod-matrix board and a power supply/mixer board for output summation.
