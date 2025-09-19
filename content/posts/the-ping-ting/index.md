@@ -16,8 +16,6 @@ tags:
 featured_image: "/images/the-ping-ting/intro-gallery/image1.jpeg"
 ---
 
-## Introduction
-
 Filters are a really wonderful and powerful tool in music production and sound design. They can be used to control and "filter" out unwanted content of the original unprocessed sound, but can also be used as a creative tool to generate new and interesting sounds. One interesting use of filters as a sound design tool is filter pinging, which will be described later in this article. _The Ping Ting_ is essentially a filter box, containing three parallel high-Q configurable filters with built-in clipping, designed to be able to be "pinged".
 
 {{< snap-gallery
