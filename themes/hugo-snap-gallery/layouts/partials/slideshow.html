@@ -4,7 +4,7 @@
 -->
 {{- $imgs := .imgs -}}
 {{- $galno := .galno -}}
-<div class="snap-slideshow" id="snap-slideshow-{{ $galno }}" style="--columns:1;--min-width:0px;--gap:0px;--slideshow-width:{{ default "100%" .width }};--cursor:{{ .cursor }};--aspectratio:{{ safeCSS (default "16/10" .aspectratio) }};">
+<div class="snap-slideshow" id="snap-slideshow-{{ $galno }}" style="--columns:1;--min-width:0px;--gap:0px;--slideshow-width:{{ default "100%" .width }};--slideshow-max-width:{{ default "100%" .maxwidth }};--cursor:{{ .cursor }};--aspectratio:{{ safeCSS (default "16/10" .aspectratio) }};--object-fit-style:{{ .objectfit }};">
   {{- range $i, $img := $imgs }}
   <div class="snap-image">
     <div class="snap-numbertext">{{ add $i 1 }} / {{ len $imgs }}</div>

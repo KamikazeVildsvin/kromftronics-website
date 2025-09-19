@@ -21,8 +21,9 @@ Filters are a really wonderful and powerful tool in music production and sound d
 {{< snap-gallery
   src="images/the-ping-ting/intro-gallery"
   mode=slideshow
-  slideshowwidth=80%
-  slideshowrotate=false
+  slideshowfitcontent=true
+  maxwidth=400px
+  aspectratio=1/1
 >}}
 
 The rest of the article will shortly cover what filter pinging is, the chosen filter architecture, and some comments about the schematic and PCB of The Ping Ting.
@@ -122,7 +123,8 @@ The last output highpass filter is just added to removed the 4.5V offset voltage
 {{< snap-gallery
   src="/images/the-ping-ting/schematic"
   mode="slideshow"
-  slideshowwidth=80%
+  slideshowfitcontent=false
+  maxwidth=640px
 >}}
 
 KiCad has this very nice 3D render function, which lets you see the PCB with components included. It is a very neat tool to check the expected dimensions and to have a look at the PCB before you send it off to manufacturing. The gallery below shows the 3D model of the PCB and the PCB layout in KiCad. You might ask why I have chosen to use the VERY large yellow film capacitors. The answer is that I ordered a big box of random film capacitors from [Banzai Music](http://www.banzaimusic.com), so I had them laying around. Better to use what you have then let it sit in the cupboard.
@@ -130,7 +132,8 @@ KiCad has this very nice 3D render function, which lets you see the PCB with com
 {{< snap-gallery
   src="/images/the-ping-ting/pcb"
   mode="slideshow"
-  slideshowwidth=80%
+  slideshowfitcontent=false
+  maxwidth=640px
 >}}
 
 A finally note is that I initially design all of the bandpass feedback circuits to have a minimum feedback resistance of 100Ω. This value worked fine for the low frequency filter (filter 3), but made the mid- and high-frequency filters unstable for large Q-factor values. To stabilize the circuit, I changed the minimum feedback resistance in filter 1 and 2 to 220Ω, which reduced the Q-factor of the two filters, but made them stable and more useful. As with everything in engineering, everything is a tradeoff ( ‾ ʖ̫ ‾)

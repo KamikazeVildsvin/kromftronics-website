@@ -1,7 +1,8 @@
 <footer>
 	<p>&copy; {{ now.Year }} {{ if .Site.Copyright }}{{ .Site.Copyright }}{{ else }}{{ .Site.Title }}{{ end }} |
+	<a href="{{ .Site.BaseURL }}"><b>Home</b></a> |
 	{{- range .Site.Menus.footer }}
-	<a href="{{ .URL }}"><b>{{ .Name }}</b></a> |
-        {{- end }}
+		<a href="{{ .URL }}"><b>{{ .Name }}</b></a> |
+    {{- end }}
 	</p>
 </footer>

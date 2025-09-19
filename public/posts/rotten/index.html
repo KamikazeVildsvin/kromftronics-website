@@ -70,54 +70,65 @@
 <link rel="stylesheet" href="/scss/snap-gallery.css" crossorigin="anonymous"><script src="/js/snap-gallery.js"></script>
 <script>imageIndex[ 1 ] = 1;</script>
 
-<div class="snap-gallery" style="--columns:4;--min-width:200px;--gap:10px;--cursor:zoom-in;--aspectratio:16/10;">
+<div class="snap-slideshow" id="snap-slideshow-1" style="--columns:1;--min-width:0px;--gap:0px;--slideshow-width:100%;--slideshow-max-width:640px;--cursor:zoom-in;--aspectratio:16/10;--object-fit-style:scale-down;">
   <div class="snap-image">
+    <div class="snap-numbertext">1 / 8</div>
     <img
-      src="/images/rotten/gallery/01-rotten.jpeg"
+      src="/images/rotten/gallery/01-signal-2024-10-16-083925_005.jpeg"
       onclick="openLightbox( 1 );openLightboxItem( 1 ,  1 );" />
   </div>
   <div class="snap-image">
+    <div class="snap-numbertext">2 / 8</div>
     <img
       src="/images/rotten/gallery/02-signal-2024-07-11-201051_005.jpeg"
       onclick="openLightbox( 1 );openLightboxItem( 1 ,  2 );" />
   </div>
   <div class="snap-image">
+    <div class="snap-numbertext">3 / 8</div>
     <img
-      src="/images/rotten/gallery/03-signal-2024-10-16-083925_005.jpeg"
+      src="/images/rotten/gallery/03-signal-2024-10-16-083925_002.jpeg"
       onclick="openLightbox( 1 );openLightboxItem( 1 ,  3 );" />
   </div>
   <div class="snap-image">
+    <div class="snap-numbertext">4 / 8</div>
     <img
-      src="/images/rotten/gallery/04-signal-2024-10-16-083925_002.jpeg"
+      src="/images/rotten/gallery/04-rotten.jpeg"
       onclick="openLightbox( 1 );openLightboxItem( 1 ,  4 );" />
   </div>
   <div class="snap-image">
+    <div class="snap-numbertext">5 / 8</div>
     <img
       src="/images/rotten/gallery/05-signal-2024-07-11-201051_003.jpeg"
       onclick="openLightbox( 1 );openLightboxItem( 1 ,  5 );" />
   </div>
   <div class="snap-image">
+    <div class="snap-numbertext">6 / 8</div>
     <img
       src="/images/rotten/gallery/06-signal-2024-10-16-083925_007-4072584745-e1729061466874.jpeg"
       onclick="openLightbox( 1 );openLightboxItem( 1 ,  6 );" />
   </div>
   <div class="snap-image">
+    <div class="snap-numbertext">7 / 8</div>
     <img
       src="/images/rotten/gallery/07-signal-2024-10-16-083925_003-4124275248-e1729061339996.jpeg"
       onclick="openLightbox( 1 );openLightboxItem( 1 ,  7 );" />
   </div>
   <div class="snap-image">
+    <div class="snap-numbertext">8 / 8</div>
     <img
       src="/images/rotten/gallery/08-layout.png"
       onclick="openLightbox( 1 );openLightboxItem( 1 ,  8 );" />
   </div>
+
+  <a class="snap-prev" onclick="moveSlideshowItem( 1 , -1)"><span>&#10094;</span></a>
+  <a class="snap-next" onclick="moveSlideshowItem( 1 , 1)"><span>&#10095;</span></a>
 </div>
 
 <div class="snap-lightbox" id="snap-lightbox-1">
   <div class="snap-lightbox-inner">
     <div class="snap-numbertext">1 / 8</div>
     <img
-      src="/images/rotten/gallery/01-rotten.jpeg"
+      src="/images/rotten/gallery/01-signal-2024-10-16-083925_005.jpeg"
       />
   </div>
   <div class="snap-lightbox-inner">
@@ -129,13 +140,13 @@
   <div class="snap-lightbox-inner">
     <div class="snap-numbertext">3 / 8</div>
     <img
-      src="/images/rotten/gallery/03-signal-2024-10-16-083925_005.jpeg"
+      src="/images/rotten/gallery/03-signal-2024-10-16-083925_002.jpeg"
       />
   </div>
   <div class="snap-lightbox-inner">
     <div class="snap-numbertext">4 / 8</div>
     <img
-      src="/images/rotten/gallery/04-signal-2024-10-16-083925_002.jpeg"
+      src="/images/rotten/gallery/04-rotten.jpeg"
       />
   </div>
   <div class="snap-lightbox-inner">
@@ -195,8 +206,9 @@
 
 	<footer>
 	<p>&copy; 2025 Kromftronics |
-	<a href="https://github.com/KamikazeVildsvin"><b>Github</b></a> |
-	<a href="mailto:info@kromftronics.com"><b>info@kromftronics.com</b></a> |
+	<a href="https://kromftronics.com/"><b>Home</b></a> |
+		<a href="https://github.com/KamikazeVildsvin"><b>Github</b></a> |
+		<a href="mailto:info@kromftronics.com"><b>info@kromftronics.com</b></a> |
 	</p>
 </footer>
 

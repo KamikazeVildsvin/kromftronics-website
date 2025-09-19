@@ -98,7 +98,7 @@
 <link rel="stylesheet" href="/scss/snap-gallery.css" crossorigin="anonymous"><script src="/js/snap-gallery.js"></script>
 <script>imageIndex[ 1 ] = 1;</script>
 
-<div class="snap-slideshow" id="snap-slideshow-1" style="--columns:1;--min-width:0px;--gap:0px;--slideshow-width:80%;--cursor:zoom-in;--aspectratio:16/10;">
+<div class="snap-slideshow" id="snap-slideshow-1" style="--columns:1;--min-width:0px;--gap:0px;--slideshow-width:100%;--slideshow-max-width:400px;--cursor:zoom-in;--aspectratio:1/1;--object-fit-style:cover;">
   <div class="snap-image">
     <div class="snap-numbertext">1 / 5</div>
     <img
@@ -255,7 +255,7 @@
 
 <script>imageIndex[ 2 ] = 1;</script>
 
-<div class="snap-slideshow" id="snap-slideshow-2" style="--columns:1;--min-width:0px;--gap:0px;--slideshow-width:80%;--cursor:zoom-in;--aspectratio:16/10;">
+<div class="snap-slideshow" id="snap-slideshow-2" style="--columns:1;--min-width:0px;--gap:0px;--slideshow-width:100%;--slideshow-max-width:640px;--cursor:zoom-in;--aspectratio:16/10;--object-fit-style:scale-down;">
   <div class="snap-image">
     <div class="snap-numbertext">1 / 4</div>
     <img
@@ -284,7 +284,7 @@
   <a class="snap-prev" onclick="moveSlideshowItem( 2 , -1)"><span>&#10094;</span></a>
   <a class="snap-next" onclick="moveSlideshowItem( 2 , 1)"><span>&#10095;</span></a>
 </div>
-<script>const autoSlideshow = setInterval(moveSlideshowItem,  5000 ,  2 , 1, "auto");</script>
+
 <div class="snap-lightbox" id="snap-lightbox-2">
   <div class="snap-lightbox-inner">
     <div class="snap-numbertext">1 / 4</div>
@@ -321,7 +321,7 @@
 
 <script>imageIndex[ 3 ] = 1;</script>
 
-<div class="snap-slideshow" id="snap-slideshow-3" style="--columns:1;--min-width:0px;--gap:0px;--slideshow-width:80%;--cursor:zoom-in;--aspectratio:16/10;">
+<div class="snap-slideshow" id="snap-slideshow-3" style="--columns:1;--min-width:0px;--gap:0px;--slideshow-width:100%;--slideshow-max-width:640px;--cursor:zoom-in;--aspectratio:16/10;--object-fit-style:scale-down;">
   <div class="snap-image">
     <div class="snap-numbertext">1 / 3</div>
     <img
@@ -344,7 +344,7 @@
   <a class="snap-prev" onclick="moveSlideshowItem( 3 , -1)"><span>&#10094;</span></a>
   <a class="snap-next" onclick="moveSlideshowItem( 3 , 1)"><span>&#10095;</span></a>
 </div>
-<script>const autoSlideshow = setInterval(moveSlideshowItem,  5000 ,  3 , 1, "auto");</script>
+
 <div class="snap-lightbox" id="snap-lightbox-3">
   <div class="snap-lightbox-inner">
     <div class="snap-numbertext">1 / 3</div>
@@ -399,8 +399,9 @@
 
 	<footer>
 	<p>&copy; 2025 Kromftronics |
-	<a href="https://github.com/KamikazeVildsvin"><b>Github</b></a> |
-	<a href="mailto:info@kromftronics.com"><b>info@kromftronics.com</b></a> |
+	<a href="https://kromftronics.com/"><b>Home</b></a> |
+		<a href="https://github.com/KamikazeVildsvin"><b>Github</b></a> |
+		<a href="mailto:info@kromftronics.com"><b>info@kromftronics.com</b></a> |
 	</p>
 </footer>
 

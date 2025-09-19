@@ -44,6 +44,7 @@ All parameters:
 - `src`: Must contain either a comma-separated list of paths to images, or a directory path containing images. Note that the paths are absolute, so imagine a `/` in front of them. Also note that the shortcode assumes that they are all stored in `/static/`.
 - `lightbox`: Whether a click on an image shall open a lightbox modal. Default: `true`.
 - `aspectratio`: Define the aspect ratio of the images in the slideshow/gallery. Default: `16/10`.
+- `maxwidth`: Defines the maximum width, which can be used to fix width. Default: `100%`.
 - `metadata`: See below for how to add metadata to your files. Default: `map[]`.
 - `mode`: Can be either `gallery` or `slideshow`. Default: `gallery`.
 - For gallery mode:
@@ -51,7 +52,8 @@ All parameters:
   - `minwidth`: Minimum width that each image shall have, e.g. `150px` or `30%`. May conflict with the desired amount of columns. Default: `200px`.
 - For slideshow mode:
   - `slideshowwidth`: Width of slideshow, e.g. `300px` or `80%`. Default: `100%`.
-  - `slideshowrotate`: Whether the slideshow shall automatically rotate through the images. Default: `true`.
+  - `slideshowfitcontent`: Sets the slideshow object-fit to `cover`, which ensures that the entire image is covered. Defaul: `false`
+  - `slideshowrotate`: Whether the slideshow shall automatically rotate through the images. Default: `false`.
   - `slideshowrotate_timer`: Interval of automatic slideshow rotation (if enabled), in milliseconds. Default: `5000` (5 seconds).
 
 **Note: Boolean values (`true`/`false`) must be provided without surrounding `"` characters!** `lightbox=false` disables the lightbox, while `lightbox="false"` does not.

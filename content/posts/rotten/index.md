@@ -12,7 +12,7 @@ tags:
   - "projects"
   - "rat"
   - "stompbox"
-featured_image: "/images/rotten/gallery/01-rotten.jpeg"
+featured_image: "/images/rotten/gallery/04-rotten.jpeg"
 ---
 
 Saturation, overdrive, or distortion is really what makes an electrical guitar come alive. The sound and tone of the guitar can be sculptured and totally change the character of the instrument depending on which saturation is being used. This is also why there exists soooo many overdrive/distortion pedals out there. It is a very personal thing, what distortion pedal that you prefer. Personally, I like things to be a bit fuzzy while still having some overdrive character.
@@ -29,8 +29,9 @@ The gallery below shows the PCB that I have created and the enclosure that I mad
 
 {{< snap-gallery
   src="images/rotten/gallery"
-  slideshowwidth=80%
-  slideshowrotate=false
+  mode=slideshow
+  maxwidth=640px
+  slideshowfitcontent=false
 >}}
 
 You should be able to make your own clown by going to the GitHub page and generate the needed Gerber files from the KiCad project. The components are also listed on the interactive BOM on the GitHub repo. I was able to find all of the components at [Banzai Music](https://www.banzaimusic.com/), and most of the components are pretty standard components.

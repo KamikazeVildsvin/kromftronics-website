@@ -4,7 +4,7 @@
 -->
 {{- $imgs := .imgs -}}
 {{- $galno := .galno -}}
-<div class="snap-gallery" style="--columns:{{ default 4 .columns }};--min-width:{{ default "200px" .minwidth }};--gap:10px;--cursor:{{ .cursor }};--aspectratio:{{ safeCSS (default "16/10" .aspectratio) }};">
+<div class="snap-gallery" style="--columns:{{ default 4 .columns }};--min-width:{{ default "200px" .minwidth }};--max-width:{{ default "100%" .maxwidth}};--gap:10px;--cursor:{{ .cursor }};--aspectratio:{{ safeCSS (default "16/10" .aspectratio) }};">
   {{- range $i, $img := $imgs }}
   <div class="snap-image">
     <img

@@ -71,14 +71,19 @@
 {{- $mode := default "gallery" .Params.mode -}}
 {{/*  Gallery mode  */}}
 {{- if eq $mode "gallery" -}}
-{{- partial "gallery" (dict "columns" .Params.columns "minwidth" .Params.minwidth "imgs" $imgs "galno" $galno "cursor" $cursor "aspectratio" .Params.aspectratio) -}}
+  {{- partial "gallery" (dict "columns" .Params.columns "minwidth" .Params.minwidth "imgs" $imgs "galno" $galno "cursor" $cursor "aspectratio" .Params.aspectratio "maxwidth" .Params.maxwidth) -}}
 {{/*  Slideshow mode  */}}
 {{- else if eq $mode "slideshow" -}}
-{{- partial "slideshow" (dict "imgs" $imgs "galno" $galno "width" .Params.slideshowwidth "cursor" $cursor "aspectratio" .Params.aspectratio) -}}
-{{/*  Set autorotate timer for slideshow, if configured (default: yes)  */}}
-{{- if (default true .Params.slideshowrotate) -}}
-<script>const autoSlideshow = setInterval(moveSlideshowItem, {{ default 5000 .Params.slideshowrotate_timer }}, {{ $galno }}, 1, "auto");</script>
-{{- end -}}
+  {{- $slideshowfitstyle := "scale-down" -}}
+  {{- if (default true .Params.slideshowfitcontent) -}}
+    {{- $slideshowfitstyle = "cover" -}}
+  {{- end -}}
+  {{- $aspectratio := (default "16/10" .Params.aspectratio) -}}
+  {{- partial "slideshow" (dict "imgs" $imgs "galno" $galno "width" .Params.slideshowwidth "cursor" $cursor "aspectratio" $aspectratio "maxwidth" .Params.maxwidth "objectfit" $slideshowfitstyle) -}}
+  {{/*  Set autorotate timer for slideshow, if configured (default: yes)  */}}
+  {{- if (default false .Params.slideshowrotate) -}}
+  <script>const autoSlideshow = setInterval(moveSlideshowItem, {{ default 5000 .Params.slideshowrotate_timer }}, {{ $galno }}, 1, "auto");</script>
+  {{- end -}}
 {{- end -}}
 
 {{/*  The Modal/Lightbox  */}}
